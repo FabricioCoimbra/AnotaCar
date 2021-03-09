@@ -23,3 +23,10 @@ _(Atualizar o redame a cada funcionalidade implementada)_
   * Valores totais por veículo, por dia, por mes, e do período.
 * Manutenções
   * Valores totais por veículo, por dia, por mes, e do período.
+
+## Guia de configuração do ambiente:
+
+* Instale o visual Studio neste [link](https://visualstudio.microsoft.com/pt-br/vs/community/).
+* Instale o SDK do .net 6 neste [link](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-6.0.100-preview.1-windows-x64-installer)
+* Instale o PostgreSQL [aqui](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). Eu estou usando a versão 12, mas possvelmente o Entity seja compatível com o 13 
+* Configure sua senha em PostgreSQLConnectionString do arquivo appsettings.Json
