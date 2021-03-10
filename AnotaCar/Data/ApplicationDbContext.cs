@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
+using AnotaCar.Models;
+using AnotaCar.Data.Seeds;
 
 namespace AnotaCar.Data
 {
@@ -10,13 +12,13 @@ namespace AnotaCar.Data
             : base(options)
         {
         }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
                 .LogTo(Console.WriteLine)
                 .EnableSensitiveDataLogging()
-                .EnableDetailedErrors(); 
+                .EnableDetailedErrors();
         }
+        public DbSet<AnotaCar.Models.Marca> Marca { get; set; }
     }
 }

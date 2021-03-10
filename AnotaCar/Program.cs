@@ -1,4 +1,5 @@
 using AnotaCar.Data;
+using AnotaCar.Data.Seeds;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,8 +15,9 @@ namespace AnotaCar
 
             using (var scope = host.Services.CreateScope())
             {
-                var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                db.Database.Migrate();
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                dbContext.Database.Migrate();
+                MarcaSeed.Seed(dbContext);
             }
 
             host.Run();

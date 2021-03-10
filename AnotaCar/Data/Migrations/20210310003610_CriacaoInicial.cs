@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AnotaCar.Data.Migrations
 {
-    public partial class CriacaoInicialBD : Migration
+    public partial class CriacaoInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
