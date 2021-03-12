@@ -1,5 +1,3 @@
-using System;
-
 namespace AnotaCar.Models
 {
     public class ErrorViewModel

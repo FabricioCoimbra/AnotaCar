@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AnotaCar.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
-using AnotaCar.Models;
-using AnotaCar.Data.Seeds;
 
 namespace AnotaCar.Data
 {
@@ -19,6 +18,14 @@ namespace AnotaCar.Data
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors();
         }
-        public DbSet<AnotaCar.Models.Marca> Marca { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+        }
+        public DbSet<Marca> Marca { get; set; }
+        public DbSet<TipoCombustivel> TipoCombustivel { get; set; }
+        public DbSet<AnotaCar.Models.TipoVeiculo> TipoVeiculo { get; set; }
+        public DbSet<AnotaCar.Models.Veiculo> Veiculo { get; set; }
     }
 }

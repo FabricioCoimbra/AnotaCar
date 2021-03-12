@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AnotaCar.Models
 {
-    public class Marca
+    public class TipoVeiculo
     {
         public int Id { get; set; }
         [Required]

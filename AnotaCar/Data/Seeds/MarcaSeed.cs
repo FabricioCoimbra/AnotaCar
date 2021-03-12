@@ -8,7 +8,7 @@ namespace AnotaCar.Data.Seeds
         public static void Seed(ApplicationDbContext context)
         {
             var contemMarcas = context.Marca.FirstOrDefaultAsync().Result != null;
-            if (contemMarcas)            
+            if (contemMarcas)
                 return;
 
             context.Marca.AddRange(
