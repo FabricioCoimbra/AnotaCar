@@ -5,7 +5,8 @@ Progeto integrador UNOESC - Sistema para gestão de custos de veículo pessoal.
 _(Atualizar o redame a cada funcionalidade implementada)_
 
 
-- [ ] Implementar o crud básico de usuários e login de usuário.
+- [x] Implementar o crud básico de usuários e login de usuário.
+   - [ ] To Do redirecionar direto pro login sem confirmação de e-mail
 - [ ] Implementar o cadastro de veículo e tabelas de dependência
 - [ ] Implementar o cadastro de abastecimentos
 - [ ] Implementar o cadastro de serviços prestados (Lavagem, pedágio, limpeza de ar condicionado, Balanceamento, geometria ... permitir cadastrar outros)
