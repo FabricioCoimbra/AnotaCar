@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AnotaCar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,23 +18,43 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Cadastros
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Marca" asp-action="Index">Marca</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="TipoVeiculo" asp-action="Index">Tipo de Veículo</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="TipoCombustivel" asp-action="Index">Tipo de Combustível</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="PostoCombustivel" asp-action="Index">Posto de Combustível</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"  asp-area="" asp-controller="Veiculo" asp-action="Index">Veículo</a>
+                            </div>
+                        </li>     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Registros
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Abastecimento" asp-action="Index">Abastecimento</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Abastecimento" asp-action="Index">Serviço</a>
+                            </div>
+                        </li> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Relatorios
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Marca" asp-action="Index">Marca</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="TipoVeiculo" asp-action="Index">Tipo de Veículo</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="TipoCombustivel" asp-action="Index">Tipo de Combustível</a>
+                                <a class="dropdown-item"  asp-area="" asp-controller="PostoCombustivel" asp-action="Index">Posto de Combustível</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"  asp-area="" asp-controller="Veiculo" asp-action="Index">Veículo</a>
+                            </div>
+                        </li> 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Marca" asp-action="Index">Marca</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TipoVeiculo" asp-action="Index">Tipo de Veículo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TipoCombustivel" asp-action="Index">Tipo de Combustível</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Veiculo" asp-action="Index">Veículo</a>
+                           
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

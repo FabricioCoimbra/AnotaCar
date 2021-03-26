@@ -21,11 +21,12 @@ namespace AnotaCar.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
         }
         public DbSet<Marca> Marca { get; set; }
         public DbSet<TipoCombustivel> TipoCombustivel { get; set; }
-        public DbSet<AnotaCar.Models.TipoVeiculo> TipoVeiculo { get; set; }
-        public DbSet<AnotaCar.Models.Veiculo> Veiculo { get; set; }
+        public DbSet<TipoVeiculo> TipoVeiculo { get; set; }
+        public DbSet<Veiculo> Veiculo { get; set; }
+        public DbSet<PostoCombustivel> PostoCombustivel { get; set; }
+        public DbSet<Abastecimento> Abastecimento { get; set; }
     }
 }

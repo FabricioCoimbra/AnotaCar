@@ -3,8 +3,8 @@ using System;
 using AnotaCar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AnotaCar.Data.Migrations
 {
@@ -16,8 +16,45 @@ namespace AnotaCar.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "6.0.0-preview.1.21102.2")
+                .HasAnnotation("ProductVersion", "6.0.0-preview.2.21154.2")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+            modelBuilder.Entity("AnotaCar.Models.Abastecimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<double>("Litros")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Observacao")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Odometro")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PostoId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("TanqueCheio")
+                        .HasColumnType("boolean");
+
+                    b.Property<double>("ValorLitro")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("VeiculoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostoId");
+
+                    b.HasIndex("VeiculoId");
+
+                    b.ToTable("Abastecimento");
+                });
 
             modelBuilder.Entity("AnotaCar.Models.Marca", b =>
                 {
@@ -34,6 +71,29 @@ namespace AnotaCar.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Marca");
+                });
+
+            modelBuilder.Entity("AnotaCar.Models.PostoCombustivel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<double>("Lat")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PostoCombustivel");
                 });
 
             modelBuilder.Entity("AnotaCar.Models.TipoCombustivel", b =>
@@ -313,6 +373,25 @@ namespace AnotaCar.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("AnotaCar.Models.Abastecimento", b =>
+                {
+                    b.HasOne("AnotaCar.Models.PostoCombustivel", "Posto")
+                        .WithMany()
+                        .HasForeignKey("PostoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AnotaCar.Models.Veiculo", "Veiculo")
+                        .WithMany()
+                        .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Posto");
+
+                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("AnotaCar.Models.Veiculo", b =>

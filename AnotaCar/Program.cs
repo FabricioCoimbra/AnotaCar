@@ -18,6 +18,8 @@ namespace AnotaCar
                 var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 dbContext.Database.Migrate();
                 MarcaSeed.Seed(dbContext);
+                TipoCombustivelSeed.Seed(dbContext);
+                TipoVeiculoSeed.Seed(dbContext);
             }
 
             host.Run();
