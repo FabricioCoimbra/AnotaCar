@@ -10,8 +10,8 @@ _(Atualizar o redame a cada funcionalidade implementada)_
    - [ ] Validar para o usuário não conseguir acessar telas sem estar logado
 - [x] Implementar o cadastro de veículo e tabelas de dependência
    - [ ] Adicionar dados padrão ao inicializar.
-- [ ] Implementar o cadastro de abastecimentos
-- [ ] Implementar o cadastro de serviços prestados (Lavagem, pedágio, limpeza de ar condicionado, Balanceamento, geometria ... permitir cadastrar outros)
+- [X] Implementar o cadastro de abastecimentos
+- [X] Implementar o cadastro de serviços prestados (Lavagem, pedágio, limpeza de ar condicionado, Balanceamento, geometria ... permitir cadastrar outros)
 - [ ] Implementar o cadastro de manutenções, preventivas e corretivas (Revisão, troca de óleo, filtros, Troca de Pneu ... Permitir cadastrar outros) 
 
 ## Implementar a extração de relatórios em formato de gráficos:
