@@ -10,27 +10,75 @@
 
 <h1>Dashboard</h1>
 
+<h1>Totais:</h1>
+
+<div class="card-columns">
+  <div class="card bg-primary text-white">
+    <div class="card-body text-center">
+      <h4 class="card-title">KM</h4>
+      <h2 class="card-text">@ViewBag.TotalKM</h2>
+    </div>
+  </div>
+  <div class="card bg-warning text-white">
+    <div class="card-body text-center">
+      <h4 class="card-title">custo por KM</h4>
+      <h2 class="card-text">Some text inside the second card</h2>
+    </div>
+  </div>
+  <div class="card bg-success text-white">
+    <div class="card-body text-center">
+      <h4 class="card-title">R$</h4>
+      <h2 class="card-text">Some text inside the third card</h2>
+    </div>
+  </div>
+  <div class="card bg-danger text-white">
+    <div class="card-body text-center">
+      <h4 class="card-title">custo por Mês</h4>
+      <h2 class="card-text">Some text inside the fourth card</h2>
+    </div>
+  </div>
+  <div class="card bg-secondary text-white">
+    <div class="card-body text-center">
+      <h4 class="card-title">custo por dia</h4>
+      <h2 class="card-text">Some text inside the fifth card</h2>
+    </div>
+  </div>
+  <div class="card bg-info text-white">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the sixth card</p>
+    </div>
+  </div>
+  <div class="card bg-dark text-white">
+    <div class="card-body text-center">
+      <p class="card-text">Some text inside the sixth card</p>
+    </div>
+  </div>
+</div>
+
 <canvas id="myChart"></canvas>
 
+@{
+    var mesSerializado = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.meses));
+}
+
 <script>
-    
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
 
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 60, 5, 2, 20, 30, 45]
-            }]
-        },
+            // The data for our dataset
+            data: {
+                labels: @mesSerializado,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 60, 5, 2, 20, 30, 45]
+                }]
+            },
 
-        // Configuration options go here
-        options: {}
-    });
+            // Configuration options go here
+            options: {}
+        });
 </script>
