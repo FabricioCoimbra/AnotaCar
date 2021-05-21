@@ -1,10 +1,10 @@
-﻿using AnotaCar.Data;
-using AnotaCar.Models;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
+using AnotaCar.Data;
+using AnotaCar.Models;
 
 namespace AnotaCar.Controllers
 {
@@ -57,7 +57,7 @@ namespace AnotaCar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PostoId,Odometro,Litros,ValorLitro,TanqueCheio,VeiculoId,Observacao")] Abastecimento abastecimento)
+        public async Task<IActionResult> Create([Bind("Id,PostoId,Odometro,Litros,ValorLitro,TanqueCheio,VeiculoId,Observacao,Data")] Abastecimento abastecimento)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace AnotaCar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PostoId,Odometro,Litros,ValorLitro,TanqueCheio,VeiculoId,Observacao")] Abastecimento abastecimento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PostoId,Odometro,Litros,ValorLitro,TanqueCheio,VeiculoId,Observacao,Data")] Abastecimento abastecimento)
         {
             if (id != abastecimento.Id)
             {

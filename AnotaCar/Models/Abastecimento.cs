@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace AnotaCar.Models
 {
@@ -19,5 +20,6 @@ namespace AnotaCar.Models
         public int VeiculoId { get; set; }
         [DisplayName("Observação")]
         public string Observacao { get; set; }
+        public DateTime Data { get; set; }
     }
 }
