@@ -33,3 +33,7 @@ _(Atualizar o redame a cada funcionalidade implementada)_
 * Instale o SDK do .net 6 neste [link](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-6.0.100-preview.1-windows-x64-installer)
 * Instale o PostgreSQL [aqui](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). Eu estou usando a versão 12, mas possvelmente o Entity seja compatível com o 13 
 * Configure sua senha em PostgreSQLConnectionString do arquivo appsettings.Json
+
+## Exemplo pra gerar a migration na pasta certa:
+
+* dotnet ef migrations add CriacaoInicial -o .\Data\Migrations
