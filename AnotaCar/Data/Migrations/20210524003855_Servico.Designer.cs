@@ -4,14 +4,16 @@ using AnotaCar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnotaCar.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210524003855_Servico")]
+    partial class Servico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,40 +101,6 @@ namespace AnotaCar.Data.Migrations
                     b.ToTable("PostoCombustivel");
                 });
 
-            modelBuilder.Entity("AnotaCar.Models.Servico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Observacao")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Odometro")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TipoServicoId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Valor")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("VeiculoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TipoServicoId");
-
-                    b.HasIndex("VeiculoId");
-
-                    b.ToTable("Servico");
-                });
-
             modelBuilder.Entity("AnotaCar.Models.TipoCombustivel", b =>
                 {
                     b.Property<int>("Id")
@@ -148,23 +116,6 @@ namespace AnotaCar.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoCombustivel");
-                });
-
-            modelBuilder.Entity("AnotaCar.Models.TipoServico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TipoServico");
                 });
 
             modelBuilder.Entity("AnotaCar.Models.TipoVeiculo", b =>
@@ -448,25 +399,6 @@ namespace AnotaCar.Data.Migrations
                     b.Navigation("Veiculo");
                 });
 
-            modelBuilder.Entity("AnotaCar.Models.Servico", b =>
-                {
-                    b.HasOne("AnotaCar.Models.TipoServico", "TipoServico")
-                        .WithMany("Servicos")
-                        .HasForeignKey("TipoServicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AnotaCar.Models.Veiculo", "Veiculo")
-                        .WithMany()
-                        .HasForeignKey("VeiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TipoServico");
-
-                    b.Navigation("Veiculo");
-                });
-
             modelBuilder.Entity("AnotaCar.Models.Veiculo", b =>
                 {
                     b.HasOne("AnotaCar.Models.Marca", "Marca")
@@ -549,11 +481,6 @@ namespace AnotaCar.Data.Migrations
             modelBuilder.Entity("AnotaCar.Models.TipoCombustivel", b =>
                 {
                     b.Navigation("Veiculos");
-                });
-
-            modelBuilder.Entity("AnotaCar.Models.TipoServico", b =>
-                {
-                    b.Navigation("Servicos");
                 });
 
             modelBuilder.Entity("AnotaCar.Models.TipoVeiculo", b =>

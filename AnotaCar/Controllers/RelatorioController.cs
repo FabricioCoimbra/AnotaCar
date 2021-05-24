@@ -21,7 +21,7 @@ namespace AnotaCar.Controllers
 
             ViewBag.meses = labels;
 
-            CarregarTotais();            
+            CarregarTotais();
             return View();
         }
 
@@ -31,11 +31,9 @@ namespace AnotaCar.Controllers
             int totalKm = SomaTotalKM();
 
             bool TemAbastecimentosRegistrados = _context.Abastecimento.Any();
-            
-
 
             ViewBag.TotalValor = totalValor;
-            ViewBag.TotalKM = totalKm;            
+            ViewBag.TotalKM = totalKm;
             ViewBag.CustoKM = (totalKm > 0) ? Math.Round(totalValor / totalKm, 2) : 0;
 
             ViewBag.CustoMes = TemAbastecimentosRegistrados ? CalcularCustoMensal() : 0;
@@ -66,14 +64,13 @@ namespace AnotaCar.Controllers
             var primeiroAbastecimento = _context.Abastecimento.Where(x => x.Data >= FirstMonth).FirstOrDefault();
 
             if (primeiroAbastecimento == null)
-            {
                 return 0;
-            }
 
             //útimos 12 meses por exemplo
             var now = DateTime.Now.AddDays(-1);
             var months = Enumerable.Range(NumeroMesesConsiderar * (-1), NumeroMesesConsiderar)
-                .Select(x => new {
+                .Select(x => new
+                {
                     year = now.AddMonths(x).Year,
                     month = now.AddMonths(x).Month
                 });
@@ -85,10 +82,7 @@ namespace AnotaCar.Controllers
                 Console.WriteLine(JsonConvert.SerializeObject(month));
 
                 if (month.year >= primeiroAbastecimento.Data.Year && month.month >= primeiroAbastecimento.Data.Month)
-                {
                     contadorMeses++;
-                }
-                
             }
 
             return contadorMeses;

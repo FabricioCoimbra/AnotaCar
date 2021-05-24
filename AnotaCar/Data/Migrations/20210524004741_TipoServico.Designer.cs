@@ -4,14 +4,16 @@ using AnotaCar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnotaCar.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210524004741_TipoServico")]
+    partial class TipoServico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace AnotaCar.Data.Migrations
                     b.Property<int>("Odometro")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TipoServicoId")
+                    b.Property<int?>("TipoServicoId")
                         .HasColumnType("integer");
 
                     b.Property<double>("Valor")
@@ -451,10 +453,8 @@ namespace AnotaCar.Data.Migrations
             modelBuilder.Entity("AnotaCar.Models.Servico", b =>
                 {
                     b.HasOne("AnotaCar.Models.TipoServico", "TipoServico")
-                        .WithMany("Servicos")
-                        .HasForeignKey("TipoServicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Veiculos")
+                        .HasForeignKey("TipoServicoId");
 
                     b.HasOne("AnotaCar.Models.Veiculo", "Veiculo")
                         .WithMany()
@@ -553,7 +553,7 @@ namespace AnotaCar.Data.Migrations
 
             modelBuilder.Entity("AnotaCar.Models.TipoServico", b =>
                 {
-                    b.Navigation("Servicos");
+                    b.Navigation("Veiculos");
                 });
 
             modelBuilder.Entity("AnotaCar.Models.TipoVeiculo", b =>

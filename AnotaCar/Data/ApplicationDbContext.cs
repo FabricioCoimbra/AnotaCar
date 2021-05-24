@@ -28,5 +28,7 @@ namespace AnotaCar.Data
         public DbSet<Veiculo> Veiculo { get; set; }
         public DbSet<PostoCombustivel> PostoCombustivel { get; set; }
         public DbSet<Abastecimento> Abastecimento { get; set; }
+        public DbSet<Servico> Servico { get; set; }
+        public DbSet<TipoServico> TipoServico { get; set; }
     }
 }
