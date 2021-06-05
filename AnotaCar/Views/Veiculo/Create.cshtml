@@ -1,10 +1,10 @@
 ﻿@model AnotaCar.Models.Veiculo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo registro";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
 <h4>Veiculo</h4>
 <hr />
@@ -46,14 +46,14 @@
                 <select asp-for="MarcaId" class ="form-control" asp-items="ViewBag.MarcaId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar á listagem</a>
 </div>
 
 @section Scripts {
